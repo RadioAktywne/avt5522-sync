@@ -1,0 +1,13 @@
+[Unit]
+Description=AVT5522 clock sync service
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=/usr/bin/python3 /opt/avt5522-sync/clock-sync.py >> /dev/null
+
+[Install]
+WantedBy=multi-user.target
